@@ -1,0 +1,4 @@
+# Ollama-RAG-Chatbot
+*/.env
+*/__pycache__/
+test/
