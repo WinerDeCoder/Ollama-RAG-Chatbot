@@ -18,8 +18,7 @@ def clean_text(text):
 
 web_retriever = TavilySearchAPIRetriever(k=2)
 
-
-client = Client(
+client_main = Client(
   host='http://localhost:11434',
   headers={'x-some-header': 'some-value'}
 )
@@ -99,7 +98,7 @@ def main():
     message = prompt_answer.format(context = synthetic_information)
     
 
-    stream = client.chat(
+    stream = client_main.chat(
         model='gemma3:12b',
         messages=[{'role': 'system', 'content': message}, 
                 {'role': 'user'  , 'content': question}]
