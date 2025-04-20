@@ -1,0 +1,44 @@
+version: "3.9"
+
+services:
+  fastapi-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    runtime: nvidia
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+    container_name: fastapi-chroma-ahcm
+    ports:
+      - "8002:8000"
+    networks:
+      - ollama-net
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - OLLAMA_HOST=ollama
+    volumes:
+      - .:/app
+      - ./chroma_db:/app/chroma_db  # persist chromaDB storage
+    depends_on:
+      - ollama
+    restart: unless-stopped
+
+
+  ollama:
+    image: ollama/ollama
+    volumes:
+      - /home/phucnguyen/.ollama:/root/.ollama
+    container_name: ollama-for-database
+    pull_policy: always
+    tty: true
+    networks:
+      - ollama-net
+    restart: unless-stopped
+    command: serve
+
+networks:
+  ollama-net:
+    driver: bridge

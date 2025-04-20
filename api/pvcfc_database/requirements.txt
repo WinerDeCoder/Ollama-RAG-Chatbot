@@ -1,0 +1,27 @@
+# Core Python dependencies
+fastapi
+uvicorn
+
+# Database and vector store
+chromadb
+
+# Pydantic models
+pydantic
+
+# Embedding model
+langchain_ollama
+
+# PyTorch and transformers
+torch
+transformers
+
+# For SQLite replacement
+pysqlite3-binary
+
+# Optional (for UUID and types)
+typing-extensions
+
+# Optional: for GPU-enabled inference (highly recommended if using CUDA)
+# You might need to specify torch version manually for compatibility
+torch
+einops

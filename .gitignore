@@ -6,3 +6,10 @@ test/
 *.env
 
 */.webui*
+
+python/*
+
+api/pvcfc_database/chroma_db/*
+
+*.ipynb
+

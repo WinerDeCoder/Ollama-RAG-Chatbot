@@ -1,0 +1,22 @@
+# Core Python dependencies
+fastapi
+uvicorn
+
+# Pydantic models
+pydantic
+
+tavily-python
+
+# PyTorch and transformers
+torch
+transformers
+
+# Optional (for UUID and types)
+typing-extensions
+
+# Optional: for GPU-enabled inference (highly recommended if using CUDA)
+# You might need to specify torch version manually for compatibility
+torch
+einops
+
+python-dotenv
